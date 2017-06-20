@@ -1,7 +1,12 @@
-const gulp = require('gulp');
+const paths = require('../../paths')
+const gulp = require('gulp')
+const browsersync = require('browser-sync')
 
-gulp.task('watch', () => {
-	gulp.watch('./gulp/src/js/**', ['js']);
-	gulp.watch('./gulp/src/css/**', ['css']);
-	gulp.watch('./gulp/src/img/**', ['img']);
-});
+gulp.task('watch', ['build', 'browsersync'], () => {
+	gulp.watch(paths.styles.src, ['styles'])
+	gulp.watch(paths.scripts.src, ['scripts'])
+	gulp.watch(paths.images.src, ['images'])
+	gulp.watch(paths.sprites.src, ['sprites'])
+	
+	gulp.watch(paths.sprites.src).on('change', browsersync.reload)
+})

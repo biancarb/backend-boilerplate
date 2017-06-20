@@ -1,8 +1,14 @@
-const gulp = require('gulp');
-const imagemin = require('gulp-imagemin');
+const paths = require('../../paths')
+const gulp = require('gulp')
+const plumber = require('gulp-plumber')
+const imagemin = require('gulp-imagemin')
+const browsersync = require('browser-sync')
 
-gulp.task('img', () => {
-    gulp.src('./gulp/src/img/**/*')
-        .pipe(imagemin())
-        .pipe(gulp.dest('./src/main/webapp/resources/img'));
-});
+gulp.task('images', () => {
+	gulp
+		.src(paths.images.src)
+		.pipe(plumber())
+		.pipe(imagemin())
+		.pipe(gulp.dest(paths.images.dest))
+		.pipe(browsersync.reload({ stream: true }))
+})

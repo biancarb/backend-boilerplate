@@ -1,10 +1,18 @@
-const gulp = require('gulp');
-const sass = require('gulp-sass');
-const cssnano = require('gulp-cssnano');
+const paths = require('../../paths')
+const gulp = require('gulp')
+const plumber = require('gulp-plumber')
+const sass = require('gulp-sass')
+const autoprefixer = require('gulp-autoprefixer')
+const cssnano = require('gulp-cssnano')
+const browsersync = require('browser-sync')
 
-gulp.task('css', () => {
-	gulp.src('./gulp/src/css/**/*.scss')
-		.pipe(sass().on('error', sass.logError))
+gulp.task('styles', () => {
+	gulp
+		.src(paths.styles.main)
+		.pipe(plumber())
+		.pipe(sass())
+		.pipe(autoprefixer('last 10 versions'))
 		.pipe(cssnano())
-		.pipe(gulp.dest('./src/main/webapp/resources/css'));
-});
+		.pipe(gulp.dest(paths.styles.dest))
+		.pipe(browsersync.reload({ stream: true }))
+})

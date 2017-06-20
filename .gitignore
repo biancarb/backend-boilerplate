@@ -17,6 +17,7 @@
 hs_err_pid*
 
 
+
 #### Maven ####
 
 target/
@@ -31,6 +32,7 @@ buildNumber.properties
 
 # Exclude maven wrapper
 !/.mvn/wrapper/maven-wrapper.jar
+
 
 
 #### Node.js ####
@@ -85,6 +87,13 @@ jspm_packages
 
 # dotenv environment variables file
 .env
+
+
+
+#### Yarn ####
+
+yarn.lock
+
 
 
 #### IntelliJ ####

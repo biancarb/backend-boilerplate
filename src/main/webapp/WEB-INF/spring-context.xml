@@ -12,7 +12,7 @@
 						   http://www.springframework.org/schema/tx
 						   http://www.springframework.org/schema/tx/spring-tx.xsd">
 	
-	<context:component-scan base-package="com.backend-boilerplate"/>
+	<context:component-scan base-package="com.backendBoilerplate"/>
 	<mvc:annotation-driven/>
 	<mvc:view-controller path="/" view-name="index"/>
 	<mvc:default-servlet-handler/>
@@ -40,7 +40,7 @@
 			<mvc:mapping path="/**"/>
 			<mvc:exclude-mapping path="/"/>
 			<mvc:exclude-mapping path="/resources/**"/>
-			<bean class="com.backend-boilerplate.Interceptor"/>
+			<bean class="com.backendBoilerplate.interceptor.Interceptor"/>
 		</mvc:interceptor>
 	</mvc:interceptors>
 </beans>

@@ -5,7 +5,7 @@
 	
 	<persistence-unit name="backend-boilerplate">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
-		<class>com.backend-boilerplate.*</class>
+		<class>com.backendBoilerplate.entity.*</class>
 		
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
@@ -17,6 +17,20 @@
 			<property name="hibernate.hbm2ddl.auto" value="update"/>
 			<property name="hibernate.show_sql" value="true"/>
 			<property name="hibernate.format_sql" value="true"/>
+		</properties>
+	</persistence-unit>
+	
+	<persistence-unit name="backend-boilerplate-tests">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		
+		<properties>
+			<property name="javax.persistence.jdbc.driver" value="org.hsqldb.jdbcDriver"/>
+			<property name="javax.persistence.jdbc.url" value="jdbc:hsqldb:mem:testdb"/>
+			<property name="javax.persistence.jdbc.user" value="sa"/>
+			<property name="javax.persistence.jdbc.password" value=""/>
+			
+			<property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect"/>
+			<property name="hibernate.hbm2ddl.auto" value="create-drop"/>
 		</properties>
 	</persistence-unit>
 </persistence>
